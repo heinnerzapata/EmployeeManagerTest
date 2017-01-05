@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A162E1_zemogatestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmploId" />
+    </Key>
+    <Property Name="EmploId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmploPicture" Type="varchar" MaxLength="200" />
+    <Property Name="EmploName" Type="varchar" MaxLength="200" />
+    <Property Name="EmploPosition" Type="int" />
+    <Property Name="EmploProj" Type="int" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PosId" />
+    </Key>
+    <Property Name="PosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PosDesc" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjId" />
+    </Key>
+    <Property Name="ProjId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjDesc" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'DB_A162E1_zemogatest.dbo.SkillEmployee' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="SkillEmployee">
+          <Property Name="SkillEmploId" Type="int" />
+          <Property Name="SkillEmploDesc" Type="varchar" MaxLength="200" />
+        </EntityType>-->
+  <Association Name="FK_Employee_EmploPosition">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PosId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmploPosition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_EmplopROJ">
+    <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmploProj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'DB_A162E1_zemogatest.dbo.SkillEmployee' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_SkillEmploye_SkillEmploId" />-->
+  <Function Name="EmployeeCRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OP" Type="varchar" Mode="In" />
+    <Parameter Name="EmploId" Type="varchar" Mode="In" />
+    <Parameter Name="EmploPicture" Type="varchar" Mode="In" />
+    <Parameter Name="EmploName" Type="varchar" Mode="In" />
+    <Parameter Name="EmploPosition" Type="varchar" Mode="In" />
+    <Parameter Name="EmploProj" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="getPositions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getProjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="DB_A162E1_zemogatestModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Employee_EmploPosition" Association="Self.FK_Employee_EmploPosition">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_EmplopROJ" Association="Self.FK_Employee_EmplopROJ">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

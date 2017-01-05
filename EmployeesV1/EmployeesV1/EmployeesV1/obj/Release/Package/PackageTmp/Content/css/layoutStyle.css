@@ -1,0 +1,124 @@
+﻿body {
+       
+}
+
+
+
+#backSection {
+
+    background-image: url('../../Images/back2.jpeg');
+    height: 100vh;
+    width:100%;
+    background-size:cover;
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:-1;
+}
+
+#headerContainer {
+       
+    color:white;
+    height: 100vh;
+    background-color:rgba(0,0,0,0.65);
+    width:100%;
+    z-index:1;
+}
+
+#titlePage {
+    margin-top:35vh;
+    font-size:70px;
+    font-weight:bold;
+}
+
+#menuHeader {
+    text-decoration: none;
+    margin:0px;
+    padding:0px;
+}
+
+
+#menuHeader li {
+    display:inline;
+}
+
+#menuHeader li {
+   margin-right:20px;
+}
+
+    #menuHeader li a {
+        color:white;
+        font-size:25px;
+    }
+
+#titleHZ {
+    font-size:18px;
+}
+
+#imgHZ {
+    max-height:100px;
+    max-width:100px;
+    margin-left:-100px;
+}
+
+#titleHZ {
+    margin-top:45px;
+}
+
+#rowHZ {
+    margin-top:60px;
+}
+
+.img-circle {
+    border-radius:25px;
+}
+
+ #footerInfo {
+        color:white;
+        font-weight:bold;
+        font-size:16px;
+        margin-top:30px;
+    }
+
+ #footer{
+        background-color:#2d2d2d;
+        
+        height:70px;
+      
+    }
+
+@media screen and (max-width: 560px) {
+
+    #menuHeader li {
+        display:block;
+        margin-top:20px;
+    }
+
+
+    #backSection {
+    
+
+        height:100vh;
+
+    }
+
+
+    #headerContainer {
+    
+         height:100vh;
+
+    }
+
+    #titlePage {
+        margin-top:5vh;
+        font-size:45px;
+    }
+
+    #menuHeader {
+        margin-top:30px;
+    }
+
+   
+
+   
+}

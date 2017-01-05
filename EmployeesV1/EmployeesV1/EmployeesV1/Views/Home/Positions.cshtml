@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Positions";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+
+@model EmployeesV1.Models.Position
+
+@section head{
+
+    <link href="@Url.Content("~/Content/css/homeStyle.css")" rel="stylesheet" type="text/css" />
+   
+        
+}
+
+<!--Employees Title-->
+<section id="employeesTitle">
+    <div class="container">
+
+        <div id="titleEmployeesContainer" class="row">
+
+            <div class="col-xs-12 text-xs-center">
+
+                <span>Positions</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--/Employees Title-->
+<!--Employees Content-->
+<div class="container">
+    <div id="cardsContainer" class="row">
+
+
+        @foreach (var item in ViewBag.Positions)
+        {
+            <div class="col-xs-12 col-md-6 col-lg-4 text-xs-center">
+
+                <div class="card">
+                    <div class="card-block">
+
+                        <h4 class="card-title">@item.PosDesc</h4>
+
+                    </div>
+
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+</div>
+
+<!--Employees Content-->
+
+

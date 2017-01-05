@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A162E1_zemogatestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmploId" />
+    </Key>
+    <Property Name="EmploId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmploPicture" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EmploName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EmploPosition" Type="Int32" />
+    <Property Name="EmploProj" Type="Int32" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Employee_EmploPosition" FromRole="Employee" ToRole="Position" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_Employee_EmplopROJ" FromRole="Employee" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PosId" />
+    </Key>
+    <Property Name="PosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PosDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EmploPosition" FromRole="Position" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjId" />
+    </Key>
+    <Property Name="ProjId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EmplopROJ" FromRole="Project" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK_Employee_EmploPosition">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PosId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmploPosition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_EmplopROJ">
+    <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmploProj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A162E1_zemogatestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Positions" EntityType="Self.Position" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <AssociationSet Name="FK_Employee_EmploPosition" Association="Self.FK_Employee_EmploPosition">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_EmplopROJ" Association="Self.FK_Employee_EmplopROJ">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <FunctionImport Name="EmployeeCRUD">
+      <Parameter Name="OP" Mode="In" Type="String" />
+      <Parameter Name="EmploId" Mode="In" Type="String" />
+      <Parameter Name="EmploPicture" Mode="In" Type="String" />
+      <Parameter Name="EmploName" Mode="In" Type="String" />
+      <Parameter Name="EmploPosition" Mode="In" Type="String" />
+      <Parameter Name="EmploProj" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getPositions" ReturnType="Collection(DB_A162E1_zemogatestModel.getPositions_Result)" />
+    <FunctionImport Name="getProjects" ReturnType="Collection(DB_A162E1_zemogatestModel.getProjects_Result)" />
+  </EntityContainer>
+  <ComplexType Name="getPositions_Result">
+    <Property Type="Int32" Name="PosId" Nullable="false" />
+    <Property Type="String" Name="PosDesc" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="getProjects_Result">
+    <Property Type="Int32" Name="ProjId" Nullable="false" />
+    <Property Type="String" Name="ProjDesc" Nullable="true" MaxLength="200" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,109 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Employee Manager</title>
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <link href="~/Content/css/layoutStyle.css" rel="stylesheet" />
+
+    @RenderSection("head", false)
+</head>
+<body>
+
+    
+    <section id="backSection">
+
+
+
+    </section>
+
+    <div id="headerContainer">
+
+        <header id="header">
+
+            <div class="container">
+
+                <div class="row flex-xs-middle">
+                    <div class="col-xs-12 text-xs-center">
+                        <h1 id="titlePage">Employee Manager</h1>
+                    </div>
+                </div>
+                <div class="row  flex-xs-middle">
+                    <div class="col-xs-12 text-xs-center">
+
+                        <ul id="menuHeader">
+
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li><a id="employeeLink" href="#">GO</a></li>
+                            <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
+                            <li>@Html.ActionLink("Positions", "Positions", "Home")</li>
+
+                        </ul>
+
+                       
+                       
+                    </div>
+                </div>
+
+                <div id="rowHZ" class="row flex-xs-middle flex-items-xs-middle">
+                    
+                    
+                    <div class="col-xs-6 text-xs-right">
+                        <img id="imgHZ" class="img-circle" src="~/Images/hzimg.jpg" />
+                    </div>
+                    <div class="col-xs-6 text-xs-left">
+                        <h4 id="titleHZ">Heinner Y. Zapata Escarraga</h4>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </header>
+
+    </div>
+    
+    <div>
+
+        @RenderBody()
+    
+    </div>
+
+    <footer id="footer">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-xs-12 text-xs-center">
+
+                    <span id="footerInfo">2016</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="~/Content/js/layout.js"></script>
+
+</body>
+</html>

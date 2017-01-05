@@ -1,0 +1,10 @@
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\bin\Debug\db_employeeEntities.dll.config
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\bin\Debug\db_employeeEntities.dll
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\bin\Debug\db_employeeEntities.pdb
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\bin\Debug\EntityFramework.dll
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\bin\Debug\EntityFramework.SqlServer.dll
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\bin\Debug\EntityFramework.xml
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\bin\Debug\EntityFramework.SqlServer.xml
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\obj\Debug\db_employeeEntities.dll
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\obj\Debug\db_employeeEntities.pdb
+D:\HZ\Drive\Zemoga\EmployeesV1\EmployeesV1\db_employeeEntities\obj\Debug\db_employeeEntities.csprojResolveAssemblyReference.cache

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A162E1_zemogatestModelStoreContainer" CdmEntityContainer="DB_A162E1_zemogatestEntities">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="DB_A162E1_zemogatestModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmploId" ColumnName="EmploId" />
+          <ScalarProperty Name="EmploPicture" ColumnName="EmploPicture" />
+          <ScalarProperty Name="EmploName" ColumnName="EmploName" />
+          <ScalarProperty Name="EmploPosition" ColumnName="EmploPosition" />
+          <ScalarProperty Name="EmploProj" ColumnName="EmploProj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="DB_A162E1_zemogatestModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="PosId" ColumnName="PosId" />
+          <ScalarProperty Name="PosDesc" ColumnName="PosDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="DB_A162E1_zemogatestModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="ProjId" ColumnName="ProjId" />
+          <ScalarProperty Name="ProjDesc" ColumnName="ProjDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EmployeeCRUD" FunctionName="DB_A162E1_zemogatestModel.Store.EmployeeCRUD" />
+    <FunctionImportMapping FunctionImportName="getPositions" FunctionName="DB_A162E1_zemogatestModel.Store.getPositions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_A162E1_zemogatestModel.getPositions_Result">
+          <ScalarProperty Name="PosId" ColumnName="PosId" />
+          <ScalarProperty Name="PosDesc" ColumnName="PosDesc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getProjects" FunctionName="DB_A162E1_zemogatestModel.Store.getProjects">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_A162E1_zemogatestModel.getProjects_Result">
+          <ScalarProperty Name="ProjId" ColumnName="ProjId" />
+          <ScalarProperty Name="ProjDesc" ColumnName="ProjDesc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
